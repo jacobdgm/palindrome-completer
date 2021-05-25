@@ -1,0 +1,30 @@
+html, body {
+	height: 100%;
+}
+
+body .center-in-page {
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+h1 {
+	margin: 10px;
+}
+
+#completionTextbox {
+	font-size: 2em;
+	font-family: monospace;
+	text-align: center;
+	margin: 10px;
+}
+
+#entryTextbox {
+	font-size: 1.2em;
+	text-align: center;
+	margin: 10px;
+}
