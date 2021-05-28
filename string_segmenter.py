@@ -1,27 +1,24 @@
 import json
 
-# words = {"an": 1, "apple": 1}
-
 with open('filt_dictionary.json') as wd:
     words = json.load(wd)
-    
-def segment_string(rem_string, prev_list = None):
-    if prev_list is None:
-        prev_list = []
         
-    l = len(rem_string)
+def segment_string(rem_string, prev_list=None):
+    prev_list = prev_list or []
+    
+    # base case: successfully reached the end of the string
     if rem_string == "":
         return True, prev_list
-    for i in range(l + 1):
-        # print("i =", i)
-        # print(rem_string[0:i], print(rem_string[0:i] in all_words))
+
+    # check for valid words at the beginning of the string
+    for i in range(1, len(rem_string) + 1):
         if rem_string[0:i] in words:
             new_list = prev_list + [rem_string[0:i]]
             segmentable, solution_list = segment_string(rem_string[i:], new_list)
             if segmentable:
-                return True, new_list
+                return True, solution_list
             else:
                 continue
-    return False, []
-            
-            
+                
+    # base case: rem_string cannot be segmented
+    return False, []    
